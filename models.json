@@ -16,6 +16,7 @@
   },
   "PackageDefinition": {
     "properties": {
+      "name": {"id": true, "type": "string"}
     },
     "public": false,
     "dataSource": "db",
@@ -29,6 +30,7 @@
   },
   "ComponentDefinition": {
     "properties": {
+      "name": {"id": true, "type": "string"},
       "defaultPermission": {"type": "string"}
     },
     "public": true,
@@ -56,7 +58,8 @@
   },
   "ComponentModel": {
     "properties": {
-      "name": {"type": "string", "id": true}
+      "id": {"type": "string"},
+      "name": {"type": "string"}
     },
     "dataSource": "db",
     "options": {
@@ -84,13 +87,13 @@
   },
   "ModelDefinition": {
     "properties": {
+      "id": "string",
       "plural": "string",
       "strict": "boolean",
       "scopes": "array",
       "public": "boolean",
       "indexes": "array",
-      "componentName": "string",
-      "dataSource": "string"
+      "componentName": "string"
     },
     "public": true,
     "dataSource": "db",
@@ -143,6 +146,7 @@
   },
   "ModelMethod": {
     "properties": {
+      "id": "string",
       "aliases": {"type": "array"},
       "isStatic": {"type": "boolean"},
       "accepts": {"type": "array"},
@@ -154,11 +158,13 @@
     "public": true,
     "dataSource": "db",
     "options": {
-      "base": "WorkspaceEntity"
+      "base": "WorkspaceEntity",
+      "includeIdPart": "modelName"
     }
   },
   "ModelRelation": {
     "properties": {
+      "id": {"type": "string"},
       "type": {"type": "string"},
       "as": {"type": "string"},
       "foreignKey": {"type": "string"},
@@ -167,11 +173,13 @@
     "public": true,
     "dataSource": "db",
     "options": {
-      "base": "WorkspaceEntity"
+      "base": "WorkspaceEntity",
+      "includeIdPart": "modelName"
     }
   },
   "ModelAccessControl": {
     "properties": {
+      "id": "string",
       "property": {"type": "string"},
       "route": {"type": "string"},
       "principalId": {"type": "string"},
@@ -181,11 +189,13 @@
     "public": true,
     "dataSource": "db",
     "options": {
-      "base": "WorkspaceEntity"
+      "base": "WorkspaceEntity",
+      "includeIdPart": "modelName"
     }
   },
   "ModelProperty": {
     "properties": {
+      "id": "string",
       "type": {"type": "string"},
       "name": {"type": "string", "id": true},
       "generated": {"type": "boolean"},
@@ -204,15 +214,18 @@
           "model": "PropertyValid",
           "foreignKey": "property"
         }
-      }
+      },
+      "includeIdPart": "modelName"
     }
   },
   "DatabaseColumn": {
-    "connector": {"type": "string"},
-    "columnName": {"type": "string"},
-    "dataType": {"type": "string"},
-    "dataLength": {"type": "string"},
-    "nullable": {"type": "boolean"},
+    "properties": {
+      "connector": {"type": "string"},
+      "columnName": {"type": "string"},
+      "dataType": {"type": "string"},
+      "dataLength": {"type": "string"},
+      "nullable": {"type": "boolean"}
+    },
     "options": {
       "base": "WorkspaceEntity"
     },
@@ -221,6 +234,7 @@
   },
   "PropertyValidation": {
     "properties": {
+      "id": {"type": "string"},
       "type": {"type": "string"},
       "message": {"type": "string"},
       "min": {"type": "number"},
@@ -232,7 +246,8 @@
     "public": true,
     "dataSource": "db",
     "options": {
-      "base": "WorkspaceEntity"
+      "base": "WorkspaceEntity",
+      "includeIdPart": "modelName"
     }
   },
   "ViewDefinition": {
@@ -259,6 +274,7 @@
   },
   "DataSourceDefinition": {
     "properties": {
+      "id": {"type": "string"},
       "host": {"type": "string"},
       "port": {"type": "number"},
       "url": {"type": "string"},
