@@ -1,4 +1,4 @@
-var rest = require('../rest');
-
-// enable authentication
-server.enableAuth();
+module.exports = function enableAuthentication(rest) {
+  // enable authentication
+  rest.enableAuth();
+};
