@@ -16,6 +16,7 @@
   },
   "PackageDefinition": {
     "properties": {
+      "componentName": {"type": "string", "required": true}
     },
     "public": false,
     "dataSource": "db",
@@ -89,7 +90,7 @@
       "scopes": "array",
       "public": "boolean",
       "indexes": "array",
-      "componentName": "string",
+      "componentName": {"type": "string", "required": true},
       "dataSource": "string"
     },
     "public": true,
