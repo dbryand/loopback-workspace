@@ -70,7 +70,7 @@ ConfigFile.prototype.load = function(cb) {
   function load(exists, cb) {
     if(exists) {
       fs.readJson(absolutePath, function(err, data) {
-        if (err) {
+        if (err && err.name === 'SyntaxError') {
           err.message = 'Cannot parse ' + configFile.path + ': ' + err.message;
         }
         cb(err, err ? undefined : data);
